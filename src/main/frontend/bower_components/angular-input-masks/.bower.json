@@ -1,0 +1,37 @@
+{
+  "name": "angular-input-masks",
+  "version": "1.3.1",
+  "homepage": "https://github.com/assisrafael/angular-input-masks",
+  "authors": [
+    "Igor Rafael <igor.rafael@gmail.com>"
+  ],
+  "description": "Personalized and localized input masks for AngularJS",
+  "main": "releases/masks.js",
+  "keywords": [
+    "angular",
+    "input",
+    "masks"
+  ],
+  "dependencies": {
+    "angular": "~1.2.9",
+    "br-validations": "~0.2.3",
+    "string-mask": "~0.1.1"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "1.3.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.3.1",
+    "commit": "9773872125cefbbedb496563288fbec4cead0887"
+  },
+  "_source": "https://github.com/assisrafael/bower-angular-input-masks.git",
+  "_target": "1.3.1",
+  "_originalSource": "angular-input-masks"
+}

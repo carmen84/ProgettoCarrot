@@ -1,0 +1,76 @@
+<html>
+
+	<div ng-controller="SearchController">
+		<br>
+		Numero documenti: <input type="text" ng-model="numberDoc" name="numberDoc" style="width: 50px;text-align: right" placeholder="10"> &nbsp;&nbsp;&nbsp; &nbsp;
+		<br>
+		Cluster: <select ng-options="item.name for item in algorithms" ng-model="selected"></select>
+		<br>
+		<br>
+		<input type="text" name="paramSearch" ng-model="paramSearch"  style="width: 500px;"> &nbsp;&nbsp;&nbsp; &nbsp; <input type="button" value = "Ricerca" ng-click="search()" style="margin-top: 5px"> 
+		<br>
+		<br>
+		<table width="100%">
+			<tr>
+				<td width="100%">
+					<div style="width:29%;border:1px solid;height:500px;display:inline;float:left;overflow: auto;">
+						Cluster
+						<br>
+				        <div style="overflow: auto;">
+							<ul id="tabs" class="nav nav-tabs" data-tabs="tabs">
+								<li class="active"><a href="#folders" data-toggle="tab">Folders</a></li>
+								<li><a href="#circles" data-toggle="tab">Circles</a></li>
+								<li><a href="#foamTree" data-toggle="tab">FoamTree</a></li>
+							</ul>
+							<div id="my-tab-content" class="tab-content">
+								<div class="tab-pane active" id="folders" style = "padding-top: 20px">
+									<ng-tree></ng-tree>
+								</div>
+								<div class="tab-pane" id="circles">
+									 <simple-pie-chart chart-pie-data="items"></simple-pie-chart>
+								</div>
+								<div class="tab-pane" id="foamTree">
+									<div id="containerGraphBubble">
+									    <bubble-text-chart chart-data="items">
+									    </bubble-text-chart>
+									  </div>
+								</div>
+							</div>
+				        </div>
+					</div>
+					  
+					<div style="width:70%;border:1px solid;display:inline;float:right;height:500px;overflow: auto;">
+					 	Documenti:
+					 	<br>
+					 	<table style="overflow: auto;">
+					 		<tbody>
+					 			<tr style="padding-top: 20px;" ng-repeat="doc in documents">
+					 				<td><a ><img style="padding-left:20px;padding-right:20px;padding-top: 20px;" src="units/img/doc.png" ng-click="toggleModal(doc)" ></a> 
+						 				
+											 <div class='ng-modal' ng-show='modalShown'> 
+											 	<div class='ng-modal-overlay' ng-click='hideModal()'></div>
+											 	<div class='ng-modal-dialog' ng-style='dialogStyle'> 
+											 		<div class='ng-modal-close' ng-click='hideModal()'>X</div>
+											 		<div class='ng-modal-dialog-content' >
+											 			<b>Dettaglio del documento</b>
+											 			<p>
+											 				Titolo: {{actualDocument.title}} <br>
+											 				Data: <label ng-bind="formatDate(actualDocument.fields.data) |  date:'dd/MM/yyyy'"></label><br>
+											 				Sentimento: {{actualDocument.fields.sentimento[0]}}
+											 			</p>
+											 		</div> 
+											 	</div> 
+											 </div>
+					 				</td>
+	                             	<td style="padding-top: 20px;">{{ doc.summary}}</td>
+					 			</tr>
+					 		
+					 		</tbody>
+					 	</table>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+</html>

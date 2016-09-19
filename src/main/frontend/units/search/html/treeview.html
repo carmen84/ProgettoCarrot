@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+</head>
+<body >
+	<div>
+		<ul>
+			<li ng-repeat="item in items" ng-click="showStates(item)">
+				<span><img style="padding-left:20px" src="units/img/folder.jpg">  {{item.label}}</span>
+				<ul>
+					<li ng-repeat="subItem in item.documents" ng-show="item.active">
+						<span>{{subItem.title}}</span>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
