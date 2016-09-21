@@ -54,9 +54,12 @@
 											 		<div class='ng-modal-dialog-content' >
 											 			<b>Dettaglio del documento</b>
 											 			<p>
-											 				Titolo: {{actualDocument.title}} <br>
+											 				Testo: {{actualDocument.title}} <br>
 											 				Data: <label ng-bind="formatDate(actualDocument.fields.data) |  date:'dd/MM/yyyy'"></label><br>
-											 				Sentimento: {{actualDocument.fields.sentimento[0]}}
+											 				Sentimento: {{actualDocument.fields.sentimento[0]}}<br>
+											 				Name: {{actualDocument.fields.name}} <br>
+											 				Utente: {{actualDocument.fields.utente}} <br>
+											 				Versione: {{actualDocument.fields.versione}} 
 											 			</p>
 											 		</div> 
 											 	</div> 

@@ -70,6 +70,9 @@ public class SearchModel implements ISearchModel{
 			  doc.setField("id", solrDoc.getFieldValues("id"));
 			  doc.setField("sentimento",solrDoc.getFieldValues("sentimento"));
 			  doc.setField("data", solrDoc.getFirstValue("data"));
+			  doc.setField("utente", solrDoc.getFieldValue("utente"));
+			  doc.setField("versione", solrDoc.getFieldValue("_version_"));
+			  doc.setField("name", solrDoc.getFieldValue("screenName"));
 			  documents.add(doc);
 		  }
 		  System.out.println("Risultato query : "+ results.toString());
