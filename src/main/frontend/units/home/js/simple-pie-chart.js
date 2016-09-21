@@ -48,7 +48,7 @@ myApp.directive('simplePieChart', function(){
     
     g.append("title")
     .text(function(d) {
-      return d.data.label;
+      return d.data.label + " : n. " + d.data.documents.length + (d.data.documents.length > 1 ? " documenti" : " documento");
     });
     
     g.append("text")

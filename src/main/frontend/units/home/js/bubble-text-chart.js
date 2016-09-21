@@ -48,7 +48,7 @@ myApp.directive('bubbleTextChart', function() {
 
         node.append("title")
           .text(function(d) {
-            return d.className + ": " + format(d.value);
+            return d.className + ": n. " + format(d.value) + (d.value >1 ? " documenti" : " documento");
           });
 
         node.append("circle")

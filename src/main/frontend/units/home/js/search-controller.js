@@ -3,7 +3,7 @@ var myApp = angular.module("myApp", []).controller('SearchController',  function
 	var baseUrl = "http://localhost:8080/spring/home/";
 	var headers = {
 		'Access-Control-Allow-Origin' : 'http://localhost:4001',
-		'Access-Control-Allow-Method' : 'POST, GET, PUT, OPTIONS',
+		'Access-Control-Allow-Method' : 'POST, GET',
 		'Content-Type' : 'application/json',
 		'Accept' : 'application/json'
 	};
@@ -16,6 +16,12 @@ var myApp = angular.module("myApp", []).controller('SearchController',  function
 	                {name:'Source'}
 	                ];
 	$scope.selected = $scope.algorithms[0];
+	
+	$scope.showDocuments = function showDocuments(doc){
+		
+		$scope.documents = doc;
+		
+	};
 	
 	
 		
@@ -52,19 +58,19 @@ var myApp = angular.module("myApp", []).controller('SearchController',  function
 	        $scope.modalShown = false;
 	      };
          
-         $scope.initTab = function(){
-     		$http({
-     			method: "GET",
-     			headers: headers,
-     			url : baseUrl + "numberTab" 	
-     		}).success(function(response){
-     			$scope.nameTab = response.nameTab;
-     			$scope.pathTab = response.path;
-     		}).error(function(e){
-     			console.log(e);
-     		});
-     	};
+     $scope.initTab = function(){
+ 		$http({
+ 			method: "GET",
+ 			headers: headers,
+ 			url : baseUrl + "numberTab" 	
+ 		}).success(function(response){
+ 			$scope.nameTab = response.nameTab;
+ 			$scope.pathTab = response.path;
+ 		}).error(function(e){
+ 			console.log(e);
+ 		});
+ 	};
      	
-     	 $scope.$watch($scope.documents, $scope.search());
+//     	 $scope.$watch($scope.documents, $scope.search());
     	 
  });
