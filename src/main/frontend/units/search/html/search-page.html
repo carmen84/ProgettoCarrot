@@ -40,30 +40,36 @@
 					</div>
 					  
 					<div style="width:70%;border:1px solid;display:inline;float:right;height:500px;overflow: auto;">
-					 	Documenti:
+					 	<div ng-if="selectedNode !== undefined">Documenti del cluster <b>'{{selectedNode}}'</b>:</div>
+					 	<b><div ng-if="selectedNode === undefined">Documenti contenuti in tutti i cluster:</div></b>
 					 	<br>
 					 	<table style="overflow: auto;">
 					 		<tbody>
 					 			<tr style="padding-top: 20px;" ng-repeat="doc in documents">
-					 				<td><a ><img style="padding-left:20px;padding-right:20px;padding-top: 20px;" src="units/img/doc.png" ng-click="toggleModal(doc)" ></a> 
-						 				
-											 <div class='ng-modal' ng-show='modalShown'> 
-											 	<div class='ng-modal-overlay' ng-click='hideModal()'></div>
-											 	<div class='ng-modal-dialog' ng-style='dialogStyle'> 
-											 		<div class='ng-modal-close' ng-click='hideModal()'>X</div>
-											 		<div class='ng-modal-dialog-content' >
-											 			<b>Dettaglio del documento</b>
-											 			<p>
-											 				Testo: {{actualDocument.title}} <br>
-											 				Data: <label ng-bind="formatDate(actualDocument.fields.data) |  date:'dd/MM/yyyy'"></label><br>
-											 				Sentimento: {{actualDocument.fields.sentimento[0]}}<br>
-											 				Name: {{actualDocument.fields.name}} <br>
-											 				Utente: {{actualDocument.fields.utente}} <br>
-											 				Versione: {{actualDocument.fields.versione}} 
-											 			</p>
-											 		</div> 
-											 	</div> 
-											 </div>
+					 				<td>
+					 					<a>
+					 						<div id="divHand" title="Visualizza il dettaglio del documento">
+						 						<img style="padding-left:20px;padding-right:20px;padding-top: 20px;" src="units/img/doc.png" ng-click="toggleModal(doc)" >
+						 					</div>
+						 				</a> 
+							 				<!-- POPUP MODALE -->
+										 <div class='ng-modal' ng-show='modalShown'> 
+										 	<div class='ng-modal-overlay' ng-click='hideModal()'></div>
+										 	<div class='ng-modal-dialog' ng-style='dialogStyle'> 
+										 		<div class='ng-modal-close' ng-click='hideModal()'>X</div>
+										 		<div class='ng-modal-dialog-content' >
+										 			<b>Dettaglio del documento</b>
+										 			<p>
+										 				Testo: {{actualDocument.title}} <br>
+										 				Data: <label ng-bind="formatDate(actualDocument.fields.data) |  date:'dd/MM/yyyy'"></label><br>
+										 				Sentimento: {{actualDocument.fields.sentimento[0]}}<br>
+										 				Name: {{actualDocument.fields.name}} <br>
+										 				Utente: {{actualDocument.fields.utente}} <br>
+										 				Versione: {{actualDocument.fields.versione}} 
+										 			</p>
+										 		</div> 
+										 	</div> 
+										 </div>
 					 				</td>
 	                             	<td style="padding-top: 20px;">{{ doc.summary}}</td>
 					 			</tr>

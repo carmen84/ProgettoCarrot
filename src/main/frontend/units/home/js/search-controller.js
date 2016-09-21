@@ -18,9 +18,8 @@ var myApp = angular.module("myApp", []).controller('SearchController',  function
 	$scope.selected = $scope.algorithms[0];
 	
 	$scope.showDocuments = function showDocuments(doc){
-		
-		$scope.documents = doc;
-		
+		$scope.documents = doc.documents;
+		$scope.selectedNode = doc.label;
 	};
 	
 	

@@ -9,6 +9,10 @@ body {
     border-color: #850000;
 }
 
+
+#divHand:hover{
+	cursor: pointer;
+}
 <!--TREE-->
 /* general tree css */
 

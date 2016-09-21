@@ -5,12 +5,23 @@
 </head>
 <body >
 	<div>
+		<ul ng-if="items !== undefined && items.length > 0">
+			<li>
+				<span title="Carica tutti i documenti" ng-click="search()">
+					<div id="divHand">Root</div>
+				</span>
+			</li>
+		</ul>
 		<ul>
 			<li ng-repeat="item in items" ng-click="showStates(item)">
-				<span><img style="padding-left:20px" src="units/img/folder.jpg">  {{item.label}}</span>
-				<ul>
+				<span ng-click="showDocuments(item)"  model="selectedNode">
+					<div id="divHand" title="Visualizza i documenti" >
+						<img style="padding-left:20px" src="units/img/folder.jpg" >  {{item.label}}
+					</div>
+				</span>
+				<ul >
 					<li ng-repeat="subItem in item.documents" ng-show="item.active">
-						<span>{{subItem.title}}</span>
+						<span >{{subItem.title}}</span>
 					</li>
 				</ul>
 			</li>
